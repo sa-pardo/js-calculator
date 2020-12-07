@@ -1,13 +1,131 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c2c2d6;
+}
+
+button {
+  width: 80px;
+  height: 65px;
+  border: none;
+}
+
+.App {
+  background-color: black;
+  width: 320px;
+
+  padding: 5px;
+  padding-right: 8px;
+  display: grid;
+  grid-template-areas:
+    "display display display display"
+    "clear clear divide multiply"
+    "seven eight nine subtract"
+    "four five six add"
+    "one two three equals"
+    "zero zero decimal equals";
+  row-gap: 1px;
+  column-gap: 1px;
+}
+
+#display {
+  grid-area: display;
+  height: 75px;
+}
+
+#clear {
+  width: auto;
+  grid-area: clear;
+  background-color: #ac3939;
+  color: white;
+}
+
+#divide {
+  grid-area: divide;
+  background-color: #c7c7c7;
+}
+
+#multiply {
+  grid-area: multiply;
+  background-color: #c7c7c7;
+}
+
+#subtract {
+  grid-area: subtract;
+  background-color: #c7c7c7;
+}
+
+#add {
+  grid-area: add;
+  background-color: #c7c7c7;
+}
+
+#equals {
+  grid-area: equals;
+  height: auto;
+  background-color: #004466;
+  color: white;
+}
+
+#decimal {
+  grid-area: decimal;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#six {
+  grid-area: six;
+}
+
+#five {
+  grid-area: five;
+}
+
+#four {
+  grid-area: four;
+}
+
+#three {
+  grid-area: three;
+}
+
+#two {
+  grid-area: two;
+}
+
+#one {
+  grid-area: one;
+}
+
+#zero {
+  width: auto;
+  grid-area: zero;
 }
