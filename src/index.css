@@ -49,6 +49,10 @@ button {
 #display {
   grid-area: display;
   height: 75px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: #f0f0f0;
 }
 
 #clear {
