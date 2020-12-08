@@ -1,19 +1,56 @@
-import React from 'react'
+import React, { useState } from "react";
 
-function App() {
+export default function App() {
+  const [input, setInput] = useState("");
+
+  const handleClick = (e) => {
+    switch (e.target.textContent) {
+      case "=":
+        // eslint-disable-next-line no-eval
+        setInput(eval(input.replace(/([+\-/*])([+\-/*]*)([+/*])/g,"$3")));
+        break;
+      case "AC":
+        setInput("0");
+        break;
+      case ".":
+        let terms = input.split(/[+\-/*]/g);
+        if (!terms.pop().includes(".")) {
+          setInput(input + e.target.textContent);
+        }
+        break;
+      default:
+        if (input === "0") {
+          setInput(e.target.textContent);
+        } else {
+          setInput(input + e.target.textContent);
+        }
+        break;
+    }
+  };
+
   return (
     <div className="App">
+      <div id="display">{input}</div>
       {buttons.map((button) => {
-        return <Button id={button.id} value={button.value}/>;
+        return (
+          <Button
+            key={button.id}
+            id={button.id}
+            value={button.value}
+            handleClick={handleClick}
+          />
+        );
       })}
     </div>
   );
 }
 
-export default App;
-
 const Button = (props) => {
-return <button id={props.id}>{props.value}</button>;
+  return (
+    <button id={props.id} onClick={props.handleClick}>
+      {props.value}
+    </button>
+  );
 };
 
 const buttons = [
@@ -89,7 +126,7 @@ const buttons = [
   },
   {
     id: "multiply",
-    value: "x",
+    value: "*",
     color: "",
   },
   {
